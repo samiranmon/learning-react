@@ -8,6 +8,7 @@ import Contact from "./template/content/Contact";
 import Tour from "./template/content/Tour";
 import Slideshow from "./template/content/Slideshow";
 import Band from "./template/content/Band";
+import TestCompo from "./template/content/TestCompo";
 //import { Router, Route, Link, browserHistory, IndexRoute } from "react-router";
 import {
   BrowserRouter as Router,
@@ -33,6 +34,7 @@ export default function App() {
             <Route path="/tour" component={Tour} />
             <Route path="/contact" component={Contact} />
             <Route path="/band" component={Band} />
+            <Route path="/test-compo" component={TestCompo} />
           </Switch>
         </div>
         <Footer />

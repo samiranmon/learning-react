@@ -1,6 +1,23 @@
 import React from "react";
 
 export default class Contact extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { name: "" };
+    this.handelChangeName = this.handelChangeName.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  handelChangeName(event) {
+    this.setState({
+      name: event.target.value
+    });
+  }
+
+  handleSubmit(event) {
+    alert("Form has been submited" + this.state.name);
+    event.preventDefault();
+  }
   render() {
     return (
       <div
@@ -8,7 +25,7 @@ export default class Contact extends React.Component {
         style={{ maxWidth: "800px" }}
         id="contact"
       >
-        <h2 className="w3-wide w3-center">CONTACT</h2>
+        <h2 className="w3-wide w3-center">CONTACT {this.props.age}</h2>
         <p className="w3-opacity w3-center">
           <i>Fan? Drop a note!</i>
         </p>
@@ -27,7 +44,7 @@ export default class Contact extends React.Component {
             <br />
           </div>
           <div className="w3-col m6">
-            <form action="/action_page.php" target="_blank">
+            <form onSubmit={this.handleSubmit}>
               <div
                 className="w3-row-padding"
                 style={{ margin: "0 -16px 8px -16px" }}
@@ -39,6 +56,7 @@ export default class Contact extends React.Component {
                     placeholder="Name"
                     required
                     name="Name"
+                    onChange={this.handelChangeName}
                   />
                 </div>
                 <div className="w3-half">
@@ -48,6 +66,7 @@ export default class Contact extends React.Component {
                     placeholder="Email"
                     required
                     name="Email"
+                    onChange={this.handleChangeEmail}
                   />
                 </div>
               </div>
